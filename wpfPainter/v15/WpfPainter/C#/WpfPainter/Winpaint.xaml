@@ -1,0 +1,141 @@
+﻿<Window x:Class="WpfPainter.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Paintwindow" Name="paintwin"
+        Tag="paintwin" WindowStartupLocation="CenterScreen" 
+        
+        WindowStyle="None"  mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="410" Width="464"  MouseDoubleClick="paintwin_MouseDoubleClick">
+    <Window.Resources >
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="RectStyle.xaml" />
+                <ResourceDictionary Source= "ButtomStyle.xaml"/>
+                <ResourceDictionary Source= "ToggleStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+          
+   
+        
+    </Window.Resources>
+    
+    <Window.Triggers>
+        
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation
+                        Duration="0:0:1"
+                        Storyboard.TargetProperty="Opacity"
+                        From="0"
+                        To="1"/>
+
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        
+    </Window.Triggers>
+    
+    <Border  CornerRadius="30,30,50,20" Padding="6" BorderThickness="1">
+        <Grid Height="348" Width="429" >
+
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="63*" />
+                <ColumnDefinition Width="331*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55*" />
+                <RowDefinition Height="173*" />
+                <RowDefinition Height="33*" />
+            </Grid.RowDefinitions>
+            <!--File menu-->
+            <DockPanel Height="31" HorizontalAlignment="Left" Name="dockPanel1" VerticalAlignment="Top" Width="140" LastChildFill="True" DataContext="{Binding}" Margin="209,0,0,0" Grid.Column="1">
+                <!--Clear canvas-->
+                <ToggleButton FontFamily="Wingdings 2"   Name="butclear" Height="30" Width="30"  Click="butclear_Click"  Checked="butclear_Checked" Content="3" ToolTip="Clear Image"/>
+                <!--Save image as image file-->
+                <Button Content="="  Name="butsave"    ToolTip="Save" Click="butsave_Click" />
+                <!--Load image File-->
+                <Button Content="1"  Name="butopen"   Click="butopen_Click" ToolTip="Open"/>
+                <!--Exite the program-->
+                <Button  Name="butclose" Content="x" MouseDoubleClick="butclose_MouseDoubleClick" ToolTip="Exit" />
+            </DockPanel>
+            <Canvas Height="225" HorizontalAlignment="Left" Margin="0,35,0,0" Name="myCanvas"
+                VerticalAlignment="Top" Width="348" Background="White" Grid.RowSpan="2" Grid.Column="1"
+                MouseLeftButtonDown="myCanvas_MouseLeftButtonDown" MouseMove="myCanvas_MouseMove" Cursor="Hand" MouseLeave="myCanvas_MouseLeave" MouseEnter="myCanvas_MouseEnter" MouseLeftButtonUp="myCanvas_MouseLeftButtonUp" MouseRightButtonDown="myCanvas_MouseRightButtonDown" MouseRightButtonUp="myCanvas_MouseRightButtonUp" MouseWheel="myCanvas_MouseWheel">
+
+
+
+            </Canvas>
+            <Grid Grid.RowSpan="2" Height="259" HorizontalAlignment="Left" Margin="0,1,0,0" Name="grid1" VerticalAlignment="Top" Width="428" Grid.ColumnSpan="2" OpacityMask="#9BE7E7E7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="69*" />
+                    <ColumnDefinition Width="359*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="34*" />
+                   
+                    <RowDefinition Height="225*" />
+                    <RowDefinition Height="0*" />
+                </Grid.RowDefinitions>
+                <WrapPanel Grid.Row="1" Grid.RowSpan="2" ClipToBounds="False" OpacityMask="#FF454444">
+                 
+                        <ToggleButton  Name="Pen" Content="!" Click="pen_Click"  Checked="Pen_Checked" ToolTip="Pen" Background="#FF35AF00" HorizontalAlignment="Center" />
+                        <ToggleButton   Content="l"    Name="butcricle" Checked="button1_Checked" ToolTip="Elipse" />
+                        <ToggleButton  Content="?" Name="butline" Checked="butline_Checked" ToolTip="Line"/>
+                    <ToggleButton    Name="butrect" Content="n" Checked="button2_Checked" ToolTip="Rectangle" />
+                        <ToggleButton  FontFamily="Webdings" Name="ani"  Content="J" Checked="ani_Checked" ToolTip="Animation"/>
+                    <WrapPanel.Background>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="#FF2E2E2E" Offset="0" />
+                            <GradientStop Color="White" Offset="0.971" />
+                        </LinearGradientBrush>
+                    </WrapPanel.Background>
+                </WrapPanel>
+                <Label Content="WpfPainter" Height="28" HorizontalAlignment="Left" Margin="-3,0,0,0" Name="label1" VerticalAlignment="Top" Width="151" FontFamily="Trajan Pro" FontSize="15" FontWeight="Bold" Grid.ColumnSpan="2" />
+            </Grid>
+            <Label Name="xy" Height="26" Grid.Column="1" Margin="249,200,13,5" Grid.Row="1" />
+            <Slider Height="18" Name="slider1" Width="57" Margin="12,186,0,27" Grid.Row="1" Maximum="100" Minimum="1" />
+<!--color-->
+            <WrapPanel Opacity="0.8" Grid.Column="1" Grid.Row="1" Height="63" HorizontalAlignment="Left" Margin="30,204,0,0" Name="colorPanel" VerticalAlignment="Top" Width="216" Background="#FFDBC5C5" OpacityMask="#FF5C1F1F" Grid.RowSpan="2">
+                <Rectangle Name="recwhite"  Fill="White"  MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="Green" Name="recgreen"  MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="Yellow" Name="recyellow"   MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="Aqua" Name="Aqua" MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="DarkOliveGreen" Name="recOliveGreen" MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="BurlyWood" Name="recBurlyWood" MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="Crimson" Name="recCrimson" MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="Cornsilk" Name="reCornsilk" MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="Lavender" Name="recLavender" MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="MistyRose" Name="recMistyRose" MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="DarkSlateGray" Name="recDarkSlateGray" MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="LightGreen" Name="recLightGreen" MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+
+                <Rectangle Fill="LightSkyBlue" Name="recLightSkyBlue" MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="BlueViolet" Name="recBlueViolet" MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="LightCoral" Name="recLightCoral" MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="Magenta" Name="recMagenta" MouseLeftButtonUp="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="Red" Name="recred" MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}" />
+                <Rectangle Fill="Blue" Name="recblue" MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="Orange" Name="recorange"  MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="Brown"  Name="recbroune" MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="Pink"  Name="recpink"  MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="Purple" Name="recpurple"  MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="DarkBlue" Name="recdarkblue" MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+                <Rectangle Fill="Black"   Name="recblack"   MouseLeftButtonDown="recColorRectangle_MouseLeftButtonDown" MouseRightButtonDown="RecStroColor_MouseRightButtonDown" Style="{StaticResource ColorRec}"/>
+            </WrapPanel>
+            
+            
+            <Ellipse Height="53" HorizontalAlignment="Left" Margin="14,210,0,0" Name="colorpiker" Stroke="Black" VerticalAlignment="Top" Width="49" Grid.Row="1" Grid.RowSpan="2" MouseLeftButtonDown="colorpiker_MouseLeftButtonDown" />
+            <Slider Grid.Row="2" Height="17" Margin="13,27,0,0" Name="slider_strok_stikness" VerticalAlignment="Top" ValueChanged="slider_strok_stikness_ValueChanged" Minimum="0" Maximum="15" MouseWheel="slider_strok_stikness_MouseWheel" />
+            <Slider HorizontalAlignment="Center" Name="slider2" Orientation="Vertical" Maximum="100" AutoToolTipPlacement="BottomRight" VerticalAlignment="Bottom" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" Height="65" Width="30" Margin="58,0,341,20" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                    <GradientStop Color="#FF736B83" Offset="0" />
+                    <GradientStop Color="White" Offset="1" />
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+    </Border>
+</Window>

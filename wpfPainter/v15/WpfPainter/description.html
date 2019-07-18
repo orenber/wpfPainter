@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=5CF4E24D59324FBE66CF8C9A49A3F942" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:FooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=F8E8917DA8158DB3E7C6F07AA1FFC4F3" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>WpfPainter</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>WpfPainter</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            C#, WPF, XAML
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Controls, Graphics, C#, User Interface, WPF
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">12/27/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/WpfPainter-32350d2a">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>WpfPainter trailer</h1>
+<p><div style="background:#FFFFCC;border:dotted 1px #FF0000;width:350px;height:300px;padding:10px;"><a href="https://code.msdn.microsoft.com/WpfPainter-32350d2a/https://i1.code.msdn.s-msft.com/wpfpainter-32350d2a/image/file/131676/1/wpf.wmv">https://i1.code<wbr />.msdn.s-msft.co<wbr />m/wpfpainter-32<wbr />350d2a/image/fi<wbr />le/131676/1/wpf<wbr />.wmv</a></div> </p>
+<h1>Introduction to WpfPainter</h1>
+<p>This program demonstrates the fantastic ability of WPF technology, Most of this software animated controls.</p>
+<p>You can save pictures and display them to animate shapes and draw freely</p>
+<p>&nbsp;</p>
+<ul>
+<li>Shows opening screen tri Dimensional shape Headline &#43; cube ranging three dimensions
+</li><li>Hover mouse over the title will drive the title at 360 &deg; Z axis </li><li>Moving the slider along the cube rotates on its axis </li><li>Pressing the button animating favorites </li><li>And pressing the button as 'painter' initialize the screen painter </li></ul>
+<p>&nbsp;</p>
+<p><em><img id="109671" src="description/wpf.jpg" alt="" width="452" height="204"></em></p>
+<p><span style="font-size:20px; font-weight:bold">Description</span><em>&nbsp; &nbsp;</em></p>
+<p>Painter software allows the user to draw pictures and shapes and animate them with the click of a button</p>
+<p>This example shows :</p>
+<p>&nbsp;</p>
+<ol>
+<li>&nbsp; how to save an image file </li><li>&nbsp; how to load a picture into a canvas </li><li>&nbsp; how to animate shapes&nbsp;Drag and drop shape&nbsp; </li><li>&nbsp; how to draw freely&nbsp;Plus a wide variety of designs and style of controls
+</li></ol>
+<p>&nbsp;</p>
+<div class="scriptcode"><img id="109672" src="description/68afef92-d606-461b-9a93-672f62a7723fwpf.jpg" alt="" width="465" height="409"></div>
+<h1>Software Instructions</h1>
+<p>Choosing color have to right-click the colored squares</p>
+<p>&nbsp;</p>
+<ul>
+<li>To delete press on the button tin </li><li>You can choose two forms&nbsp;Square and circle right click Tnfis the same shape by shape 360 degree rotation&nbsp;To animate always have to press a button animation
+</li><li>You can create shapes by two ways: </li><li>By pulling and dragging - pressing the circle or square shape and Then left-click on the canvas and drag the mouse to the appropriate size.
+</li><li>By drag and drop - Move the slider to determine the vertical and horizontal dimensions of the shape, and then clicking the desired form a circle or a square, then there will be shape on the top right side of the canvas&nbsp;By right clicking on the signal
+ shape can drag sensible canvas&nbsp; </li><li>If you want to clear the form, click the X button right click on the shape you want to delete.
+</li></ul>
+<p>&nbsp;</p>
+<h1><span style="font-size:x-small"><strong>If you have suggestions for improvements comments are gladly accepted</strong></span></h1>
+
+</div>
+
+
+    </div>
+</body>
+</html>
