@@ -1,6 +1,6 @@
 # Welcome to the wpfPainter!
 
-[WPF painter](https://www.youtube.com/watch?v=cdy8YQRFBWI&feature=youtu.be)
+[![WPF painter](https://img.youtube.com/vi/ifOlqADq_7w/0.jpg)](https://www.youtube.com/watch?v=cdy8YQRFBWI&feature=youtu.be)
 
 ## Introduction to WpfPainter
 This program demonstrates the fantastic ability of WPF technology, Most of this software animated controls.
