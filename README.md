@@ -1,4 +1,4 @@
-# Welcome to the wpfPainter wiki!
+# Welcome to the wpfPainter!
 
 [WPF painter](https://www.youtube.com/watch?v=cdy8YQRFBWI&feature=youtu.be)
 
