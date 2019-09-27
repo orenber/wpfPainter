@@ -36,4 +36,3 @@ Choosing color have to right-click the colored squares
 * If you want to clear the form, click the X button right click on the shape you want to delete.
 
 If you have suggestions for improvements comments are gladly accepted
-
