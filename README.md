@@ -25,14 +25,8 @@ This example shows :
 *   how to draw freely Plus a wide variety of designs and style of controls
 
 
-
 Software Instructions
 Choosing color have to right-click the colored squares
-
-
-Software Instructions
-Choosing color have to right-click the colored squares
-
 
 * To delete press on the button tin
 * You can choose two forms Square and circle right click Tnfis the same shape by shape 360 degree rotation To animate always have to press a button animation
